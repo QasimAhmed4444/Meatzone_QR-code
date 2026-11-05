@@ -119,6 +119,25 @@
     justify-content:space-evenly;
     gap:10px;
   }
+  .links::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    left:50%;top:-30px;bottom:-40px;
+    width:100vw;max-width:1024px;
+    transform:translateX(-50%);
+    background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22 viewBox=%220 0 180 180%22 fill=%22none%22 stroke=%22%237d1426%22 stroke-width=%222.2%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cg transform=%22translate%2814 16%29 rotate%28-12 26 20%29%22%3E%3Cpath d=%22M6 22c0-11 11-18 25-18 14 0 23 7 23 16 0 12-12 20-28 20C14 40 6 33 6 22z%22/%3E%3Cpath d=%22M18 22c0-5 5-8 11-8s10 3 10 7-5 8-11 8-10-3-10-7z%22/%3E%3Ccircle cx=%2229%22 cy=%2221%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28104 12%29 rotate%2828 30 26%29%22%3E%3Cpath d=%22M10 14c9-9 25-9 30 2 4 9-1 20-12 23L20 48%22/%3E%3Cpath d=%22M20 48l-5 5m5-5l3 7M15 53a3.5 3.5 0 1 0-4-1M23 55a3.5 3.5 0 1 0 4 2%22/%3E%3Cpath d=%22M14 22c3-4 9-5 13-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2820 102%29 rotate%28-20 32 24%29%22%3E%3Cpath d=%22M4 8h40v24H4z%22 rx=%223%22/%3E%3Cpath d=%22M44 18h20v4H44z%22/%3E%3Ccircle cx=%2212%22 cy=%2216%22 r=%222.4%22/%3E%3C/g%3E%3Cg transform=%22translate%28110 104%29 rotate%2816 26 28%29%22%3E%3Cpath d=%22M26 6c10 0 18 8 18 18 0 9-7 15-15 15H23C15 39 8 33 8 24 8 14 16 6 26 6z%22/%3E%3Cpath d=%22M26 39v16m-5 0h10%22/%3E%3Cpath d=%22M19 22c2-5 7-8 13-6%22/%3E%3C/g%3E%3Cg transform=%22translate%2878 70%29%22 stroke-width=%221.8%22%3E%3Cpath d=%22M4 24C10 14 18 6 28 2%22/%3E%3Cpath d=%22M10 15l-6-3m9-1l-5-5m10 1l-2-6m6 13l6-2m-10 7l6 1%22/%3E%3C/g%3E%3C/svg%3E") center/140px 140px repeat;
+    opacity:.14;
+    -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 55%,#000 45%,transparent 100%);
+            mask-image:radial-gradient(ellipse 80% 70% at 50% 55%,#000 45%,transparent 100%);
+    pointer-events:none;
+  }
+  @media (max-width:640px){
+    .hero{aspect-ratio:390/205;background-position:center 45%}
+    .logo{width:100px}
+    h1{font-size:34px}
+    header{padding-top:14px}
+  }
   .btn{
     display:flex;align-items:center;
     width:100%;
