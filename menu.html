@@ -182,18 +182,6 @@
     font-size:13px;color:#5c4a44;
   }
   .card .price b{color:var(--maroon);font-weight:700;font-size:15px}
-  .order{
-    margin-top:auto;
-    display:flex;align-items:center;justify-content:center;gap:6px;
-    height:32px;margin-top:8px;
-    border-radius:999px;
-    background:linear-gradient(180deg,#2a8a40 0%,var(--green) 55%,var(--green-deep) 100%);
-    border:1px solid var(--gold-light);
-    color:#fff;
-    font-family:'Nunito Sans','Lato',sans-serif;font-weight:700;font-size:12.5px;
-  }
-  .order svg{width:14px;height:14px}
-  .order:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
   .group + .group{margin-top:28px}
   [hidden]{display:none!important}
 
@@ -278,8 +266,6 @@
       ['Beef Trotters','40','1544025162-d76694265947']
     ]}
   ];
-  var WA = 'https://api.whatsapp.com/send/?phone=966595051532&type=phone_number&app_absent=0&text=';
-  var waIcon = '<svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" aria-hidden="true"><path d="M32 5C17 5 5 17 5 32c0 5 1.4 9.7 3.8 13.7L5 59l13.7-3.6A27 27 0 1 0 32 5z"/></svg>';
 
   function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 
@@ -305,12 +291,10 @@
       '<span class="count">'+c.items.length+(c.items.length===1?' item':' items')+'</span>'+
       '<div class="grid">';
     c.items.forEach(function(p){
-      var msg = encodeURIComponent('Hello Meat Zone, I would like to order: '+p[0]);
       html += '<article class="card">'+
         '<div class="ph"><img class="photo" src="'+IMG+p[2]+Q+'" alt="'+esc(p[0])+'" loading="lazy" width="600" height="600"></div>'+
         '<div class="body"><h3>'+esc(p[0])+'</h3>'+
         '<div class="price">From <b>'+p[1]+' SAR</b></div>'+
-        '<a class="order" href="'+WA+msg+'" target="_blank" rel="noopener noreferrer">'+waIcon+'Order</a>'+
         '</div></article>';
     });
     html += '</div></section>';
