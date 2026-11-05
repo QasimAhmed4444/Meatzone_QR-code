@@ -11,10 +11,26 @@
   // Always open at the top of the page (e.g. when coming back from a QR scan)
   if('scrollRestoration' in history) history.scrollRestoration='manual';
   if(location.hash) history.replaceState(null,'',location.pathname+location.search);
-  function mzTop(){window.scrollTo(0,0)}
-  window.addEventListener('DOMContentLoaded',mzTop);
-  window.addEventListener('load',mzTop);
-  window.addEventListener('pageshow',mzTop);
+  var mzUser=false;
+  function mzTop(){
+    if(mzUser) return;
+    window.scrollTo(0,0);
+    if(document.documentElement) document.documentElement.scrollTop=0;
+    if(document.body) document.body.scrollTop=0;
+  }
+  function mzTopBurst(){
+    mzTop();
+    [50,150,300,600,1000,1500].forEach(function(t){setTimeout(mzTop,t)});
+  }
+  mzTop();
+  window.addEventListener('DOMContentLoaded',mzTopBurst);
+  window.addEventListener('load',mzTopBurst);
+  window.addEventListener('pageshow',function(){mzUser=false;mzTopBurst()});
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(mzTop);
+  // stop the bursts as soon as the visitor scrolls by themselves
+  ['touchstart','wheel','keydown'].forEach(function(e){
+    window.addEventListener(e,function(){mzUser=true},{passive:true});
+  });
 </script>
 <style>
   :root{
