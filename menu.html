@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Menu – Meat Zone · Madinah</title>
+<title>Our Products – Meat Zone · Madinah</title>
 <meta name="description" content="Meat Zone menu: fresh halal beef, mutton, camel, chicken and extras in Madinah.">
 <meta name="theme-color" content="#7d1426">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,20 +94,20 @@
     max-width:1024px;margin:0 auto;
     display:flex;gap:10px;
     overflow-x:auto;scroll-snap-type:x proximity;
-    padding:14px 16px 12px;
+    padding:10px 16px 8px;
     scrollbar-width:none;
   }
   .tabs::-webkit-scrollbar{display:none}
   .tab{
     flex:0 0 auto;scroll-snap-align:start;
-    display:flex;flex-direction:column;align-items:center;gap:7px;
-    width:78px;
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+    width:80px;
     font-family:'Nunito Sans','Lato',sans-serif;font-weight:700;
     font-size:12px;line-height:1.2;text-align:center;
     color:var(--text-maroon);
   }
   .tab .pic{
-    width:64px;height:64px;border-radius:50%;
+    width:56px;height:56px;border-radius:50%;
     background:#eadfd3 center/cover no-repeat;
     border:2px solid var(--gold-light);
     box-shadow:0 3px 8px rgba(90,12,24,.12);
@@ -130,22 +130,18 @@
   /* ---------- Products ---------- */
   main{
     flex:1;width:100%;max-width:1024px;margin:0 auto;
-    padding:18px 16px 28px;
+    padding:12px 16px 24px;
   }
   .section-title{
-    display:flex;align-items:center;justify-content:center;gap:14px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:10px;
     font-family:'Cinzel',Georgia,serif;font-weight:700;
-    color:var(--maroon);font-size:20px;letter-spacing:.04em;
-    margin:4px 0 16px;text-align:center;
+    color:var(--maroon);font-size:16px;letter-spacing:.03em;
+    margin:0 0 10px;padding-bottom:6px;
+    border-bottom:1.5px solid rgba(184,148,90,.45);
   }
-  .section-title::before,.section-title::after{
-    content:"";width:34px;height:2px;border-radius:2px;
-    background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold));
-  }
-  .section-title::after{transform:scaleX(-1)}
-  .count{
-    display:block;text-align:center;margin:-10px 0 16px;
-    font-size:12.5px;letter-spacing:.06em;color:#8a6a60;
+  .section-title .count{
+    font-family:'Lato',sans-serif;font-weight:400;
+    font-size:12px;letter-spacing:.04em;color:#8a6a60;white-space:nowrap;
   }
   .grid{
     display:grid;
@@ -163,7 +159,7 @@
     box-shadow:0 0 0 1px rgba(217,191,140,.35),0 4px 12px rgba(90,12,24,.08);
   }
   .card .ph{
-    position:relative;aspect-ratio:1/1;width:100%;
+    position:relative;aspect-ratio:4/3;width:100%;
     background:#eadfd3;overflow:hidden;
   }
   .card .photo{
@@ -172,7 +168,7 @@
   }
   .card .body{
     flex:1;display:flex;flex-direction:column;
-    padding:10px 12px 12px;gap:4px;
+    padding:8px 10px 10px;gap:2px;
   }
   .card h3{
     font-family:'Nunito Sans','Lato',sans-serif;font-weight:800;
@@ -182,7 +178,7 @@
     font-size:13px;color:#5c4a44;
   }
   .card .price b{color:var(--maroon);font-weight:700;font-size:15px}
-  .group + .group{margin-top:28px}
+  .group + .group{margin-top:20px}
   [hidden]{display:none!important}
 
   /* ---------- Footer ---------- */
@@ -214,7 +210,7 @@
       <svg viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3L2 12l9 9"/></svg>
       Home
     </a>
-    <div class="brand">MEAT ZONE<small>OUR MENU</small></div>
+    <div class="brand">MEAT ZONE<small>OUR PRODUCTS</small></div>
   </div>
 </div>
 
@@ -287,8 +283,7 @@
   var html = '';
   MENU.forEach(function(c){
     html += '<section class="group" data-cat="'+c.id+'" role="tabpanel">'+
-      '<h2 class="section-title">'+esc(c.name)+'</h2>'+
-      '<span class="count">'+c.items.length+(c.items.length===1?' item':' items')+'</span>'+
+      '<h2 class="section-title"><span>'+esc(c.name)+'</span><span class="count">'+c.items.length+(c.items.length===1?' item':' items')+'</span></h2>'+
       '<div class="grid">';
     c.items.forEach(function(p){
       html += '<article class="card">'+
