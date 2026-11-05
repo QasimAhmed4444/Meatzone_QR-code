@@ -36,6 +36,7 @@
     background:var(--cream);
     color:var(--text-maroon);
     min-height:100vh;
+    min-height:100svh;
     display:flex;flex-direction:column;
     -webkit-font-smoothing:antialiased;
   }
@@ -46,6 +47,7 @@
     max-width:1024px;
     margin:0 auto;
     flex:1;
+    display:flex;flex-direction:column;
     background:
       radial-gradient(ellipse at 50% 0%, #fbf8f4 0%, var(--cream) 60%);
   }
@@ -57,7 +59,7 @@
   }
   .logo{
     display:block;
-    width:clamp(92px,19vw,194px);
+    width:clamp(116px,19vw,194px);
     height:auto;
     margin:0 auto;
   }
@@ -65,7 +67,7 @@
     font-family:'Cinzel','Trajan Pro',Georgia,serif;
     font-weight:700;
     color:var(--maroon);
-    font-size:clamp(34px,7.6vw,78px);
+    font-size:clamp(38px,7.6vw,78px);
     line-height:1.05;
     letter-spacing:.02em;
     margin-top:clamp(4px,1vw,10px);
@@ -108,21 +110,24 @@
   .links{
     position:relative;
     z-index:2;
-        width:min(560px,calc(100% - 40px));
+    width:min(340px,calc(100% - 72px));
     margin:clamp(-40px,-4vw,-18px) auto 0;
+    padding:4px 0 14px;
+    flex:1;
     display:flex;flex-direction:column;
-    gap:clamp(8px,1.1vw,11px);
+    justify-content:space-evenly;
+    gap:10px;
   }
   .btn{
     display:flex;align-items:center;
     width:100%;
-    min-height:clamp(38px,4.6vw,46px);
-    padding:6px clamp(16px,2.2vw,20px);
+    min-height:38px;
+    padding:5px 16px;
     border-radius:999px;
     font-family:'Nunito Sans','Lato',system-ui,sans-serif;
-    font-weight:800;
-    font-size:clamp(14px,1.7vw,16px);
-    letter-spacing:.005em;
+    font-weight:700;
+    font-size:13.5px;
+    letter-spacing:.02em;
     background:var(--card);
     color:var(--text-maroon);
     border:1.5px solid var(--maroon);
@@ -137,10 +142,10 @@
     flex:0 0 20px;
     width:20px;height:20px;
     display:flex;align-items:center;justify-content:center;
-    margin-right:clamp(12px,1.8vw,15px);
+    margin-right:12px;
   }
-  .btn .ico svg{display:block;width:19px;height:19px}
-  .btn .ico svg.wide{width:21px;height:21px}
+  .btn .ico svg{display:block;width:17px;height:17px}
+  .btn .ico svg.wide{width:19px;height:19px}
   .btn .label{flex:1;line-height:1.2}
   .btn .chev{flex:0 0 7px;width:7px;height:12px;margin-left:12px;opacity:.9}
 
@@ -158,9 +163,9 @@
 
   /* ---------- Footer band ---------- */
   .footer{
-    --arc:clamp(80px,14vw,170px);
+    --arc:clamp(110px,14vw,170px);
     position:relative;
-    margin-top:calc(-1 * clamp(46px,9vw,110px));
+    margin-top:calc(-1 * clamp(64px,9vw,110px));
     padding-top:calc(var(--arc) + 10px);
     background:linear-gradient(180deg,var(--maroon) 0%,var(--maroon-dark) 100%);
     text-align:center;
@@ -205,7 +210,7 @@
   .domain{
     display:flex;align-items:center;justify-content:center;
     gap:clamp(14px,2.4vw,24px);
-    padding:clamp(12px,2.4vw,24px) 16px clamp(14px,3vw,30px);
+    padding:clamp(18px,2.4vw,24px) 16px calc(clamp(22px,3vw,30px) + env(safe-area-inset-bottom));
     color:#f3e6d9;
     font-size:clamp(13px,1.6vw,15px);
     letter-spacing:.14em;
