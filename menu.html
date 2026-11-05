@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu – Meat Zone · Madinah</title>
+<meta name="description" content="Meat Zone menu: fresh halal beef, mutton, camel, chicken and extras in Madinah.">
+<meta name="theme-color" content="#7d1426">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@400;700&family=Nunito+Sans:opsz,wght@6..12,700;6..12,800&display=swap" rel="stylesheet">
+<script>
+  // Always open at the top of the page
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  function mzTop(){window.scrollTo(0,0)}
+  window.addEventListener('DOMContentLoaded',mzTop);
+  window.addEventListener('load',mzTop);
+  window.addEventListener('pageshow',mzTop);
+</script>
+<style>
+  :root{
+    --maroon:#7d1426;
+    --maroon-deep:#6a0f1e;
+    --maroon-dark:#5a0c18;
+    --green:#1f7a35;
+    --green-deep:#155f27;
+    --cream:#f8f3ed;
+    --card:#fdfaf7;
+    --gold:#b8945a;
+    --gold-light:#d9bf8c;
+    --text-maroon:#6e1424;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:hidden}
+  body{
+    font-family:'Lato',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--text-maroon);
+    min-height:100vh;min-height:100svh;
+    display:flex;flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  /* ---------- Top bar ---------- */
+  .top{
+    position:sticky;top:0;z-index:10;
+    background:linear-gradient(180deg,#8e1a2e 0%,var(--maroon) 55%,var(--maroon-deep) 100%);
+    border-bottom:2px solid var(--gold-light);
+    box-shadow:0 4px 14px rgba(90,12,24,.22);
+    padding-top:env(safe-area-inset-top);
+  }
+  .bar{
+    max-width:1024px;margin:0 auto;
+    display:flex;align-items:center;
+    gap:10px;
+    padding:10px 16px;
+  }
+  .back{
+    flex:0 0 auto;
+    display:flex;align-items:center;gap:6px;
+    height:36px;padding:0 14px 0 10px;
+    border-radius:999px;
+    border:1.5px solid var(--gold-light);
+    color:#fff;
+    font-family:'Nunito Sans','Lato',sans-serif;font-weight:700;font-size:13.5px;
+    background:rgba(255,255,255,.08);
+  }
+  .back svg{width:8px;height:14px}
+  .back:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px}
+  .brand{
+    flex:1;text-align:center;
+    font-family:'Cinzel',Georgia,serif;font-weight:700;
+    color:#fff;letter-spacing:.06em;
+    font-size:20px;line-height:1;
+    padding-right:72px; /* balance the back button so the title sits centred */
+  }
+  .brand small{
+    display:block;margin-top:4px;
+    font-family:'Lato',sans-serif;font-weight:400;
+    font-size:11px;letter-spacing:.22em;color:var(--gold-light);
+  }
+
+  /* ---------- Category tabs ---------- */
+  .tabs-wrap{
+    position:sticky;z-index:9;
+    top:calc(58px + env(safe-area-inset-top));
+    background:var(--cream);
+    border-bottom:1px solid rgba(184,148,90,.35);
+  }
+  .tabs{
+    max-width:1024px;margin:0 auto;
+    display:flex;gap:10px;
+    overflow-x:auto;scroll-snap-type:x proximity;
+    padding:14px 16px 12px;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:0 0 auto;scroll-snap-align:start;
+    display:flex;flex-direction:column;align-items:center;gap:7px;
+    width:78px;
+    font-family:'Nunito Sans','Lato',sans-serif;font-weight:700;
+    font-size:12px;line-height:1.2;text-align:center;
+    color:var(--text-maroon);
+  }
+  .tab .pic{
+    width:64px;height:64px;border-radius:50%;
+    background:#eadfd3 center/cover no-repeat;
+    border:2px solid var(--gold-light);
+    box-shadow:0 3px 8px rgba(90,12,24,.12);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    overflow:hidden;
+  }
+  .tab .pic.all{
+    display:flex;align-items:center;justify-content:center;
+    background:var(--card);
+  }
+  .tab .pic.all svg{width:28px;height:28px}
+  .tab[aria-selected="true"] .pic{
+    border-color:var(--maroon);
+    box-shadow:0 0 0 3px var(--gold-light),0 5px 12px rgba(90,12,24,.22);
+    transform:translateY(-1px);
+  }
+  .tab[aria-selected="true"] .name{color:var(--maroon);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px;text-decoration-thickness:2px}
+  .tab:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:12px}
+
+  /* ---------- Products ---------- */
+  main{
+    flex:1;width:100%;max-width:1024px;margin:0 auto;
+    padding:18px 16px 28px;
+  }
+  .section-title{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    font-family:'Cinzel',Georgia,serif;font-weight:700;
+    color:var(--maroon);font-size:20px;letter-spacing:.04em;
+    margin:4px 0 16px;text-align:center;
+  }
+  .section-title::before,.section-title::after{
+    content:"";width:34px;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold));
+  }
+  .section-title::after{transform:scaleX(-1)}
+  .count{
+    display:block;text-align:center;margin:-10px 0 16px;
+    font-size:12.5px;letter-spacing:.06em;color:#8a6a60;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+  @media (min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+  @media (min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .card{
+    display:flex;flex-direction:column;
+    background:var(--card);
+    border:1.5px solid rgba(125,20,38,.18);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 0 0 1px rgba(217,191,140,.35),0 4px 12px rgba(90,12,24,.08);
+  }
+  .card .ph{
+    position:relative;aspect-ratio:1/1;width:100%;
+    background:#eadfd3;overflow:hidden;
+  }
+  .card .photo{
+    position:absolute;inset:0;width:100%;height:100%;
+    display:block;object-fit:cover;color:transparent;
+  }
+  .card .body{
+    flex:1;display:flex;flex-direction:column;
+    padding:10px 12px 12px;gap:4px;
+  }
+  .card h3{
+    font-family:'Nunito Sans','Lato',sans-serif;font-weight:800;
+    font-size:14.5px;line-height:1.25;color:var(--maroon);
+  }
+  .card .price{
+    font-size:13px;color:#5c4a44;
+  }
+  .card .price b{color:var(--maroon);font-weight:700;font-size:15px}
+  .order{
+    margin-top:auto;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    height:32px;margin-top:8px;
+    border-radius:999px;
+    background:linear-gradient(180deg,#2a8a40 0%,var(--green) 55%,var(--green-deep) 100%);
+    border:1px solid var(--gold-light);
+    color:#fff;
+    font-family:'Nunito Sans','Lato',sans-serif;font-weight:700;font-size:12.5px;
+  }
+  .order svg{width:14px;height:14px}
+  .order:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .group + .group{margin-top:28px}
+  [hidden]{display:none!important}
+
+  /* ---------- Footer ---------- */
+  .footer{
+    background:linear-gradient(180deg,var(--maroon) 0%,var(--maroon-dark) 100%);
+    border-top:2px solid var(--gold-light);
+    color:#f3e6d9;text-align:center;
+    padding:20px 16px calc(22px + env(safe-area-inset-bottom));
+  }
+  .footer .wa{
+    display:inline-flex;align-items:center;gap:10px;
+    height:40px;padding:0 20px;border-radius:999px;
+    background:linear-gradient(180deg,#2a8a40 0%,var(--green) 55%,var(--green-deep) 100%);
+    border:1.5px solid var(--gold-light);
+    color:#fff;font-family:'Nunito Sans','Lato',sans-serif;font-weight:700;font-size:14px;
+  }
+  .footer .wa svg{width:18px;height:18px}
+  .footer p{margin-top:14px;font-size:13px;letter-spacing:.14em}
+  .footer p a:hover{text-decoration:underline;text-underline-offset:4px}
+  .note{font-size:11.5px;letter-spacing:.04em;opacity:.8;margin-top:8px!important}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="bar">
+    <a class="back" href="./" aria-label="Back to home">
+      <svg viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3L2 12l9 9"/></svg>
+      Home
+    </a>
+    <div class="brand">MEAT ZONE<small>OUR MENU</small></div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="Menu categories" id="tabs"></div>
+</div>
+
+<main id="menu" aria-live="polite"></main>
+
+<footer class="footer">
+  <a class="wa" href="https://api.whatsapp.com/send/?phone=966595051532&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" aria-hidden="true"><path d="M32 5C17 5 5 17 5 32c0 5 1.4 9.7 3.8 13.7L5 59l13.7-3.6A27 27 0 1 0 32 5z"/><path fill="#fff" stroke="none" d="M23.4 17.6c-.7-1.6-1.4-1.6-2-1.6h-1.8c-.6 0-1.6.2-2.4 1.1-.8.9-3.2 3.1-3.2 7.5s3.3 8.7 3.7 9.3c.5.6 6.4 10.1 15.7 13.8 7.8 3 9.4 2.4 11 2.3 1.7-.2 5.4-2.2 6.2-4.3.8-2.1.8-3.9.5-4.3-.2-.4-.8-.6-1.7-1.1l-5.9-2.9c-.8-.3-1.4-.4-2 .4-.6.9-2.3 2.9-2.8 3.5-.5.6-1 .7-1.9.2-.9-.4-3.7-1.4-7.1-4.4-2.6-2.3-4.4-5.2-4.9-6.1-.5-.9 0-1.4.4-1.8.4-.4.9-1 1.3-1.6.4-.5.6-.9.9-1.5.3-.6.1-1.1-.1-1.6-.2-.4-1.9-4.8-2.7-6.6z"/></svg>
+    Order on WhatsApp
+  </a>
+  <p><a href="https://meatzoneksa.com/" target="_blank" rel="noopener noreferrer">meatzoneksa.com</a></p>
+  <p class="note">Prices start from the amount shown.</p>
+</footer>
+
+<script>
+  var IMG = 'https://images.unsplash.com/photo-';
+  var Q = '?w=600&h=600&fit=crop&q=70&auto=format';
+  var CAT = 'https://cplbikuknnwazuyhjmiq.supabase.co/storage/v1/object/public/product-images/categories/';
+  var MENU = [
+    {id:'beef', name:'Beef', pic:CAT+'beef-1792331343297.avif', items:[
+      ['Pakistani Beef','55','1588168333986-5078d3ae3976'],
+      ['Indian Veal','60','1558030006-450675393462'],
+      ['Brazilian Beef','95','1603048297172-c92544798d5a']
+    ]},
+    {id:'mutton', name:'Chilled Fresh Mutton', pic:CAT+'chilled-fresh-mutton-1792331369048.avif', items:[
+      ['Sawakni','115','1432139555190-58524dae6a55'],
+      ['Harri','95','1598103442097-8b74394b95c6'],
+      ['Pakistani Mutton','90','1603360946369-dc9bb6258143'],
+      ['Indian Mutton','70','1603360946369-dc9bb6258143'],
+      ['Sudan Sawakni','85','1598103442097-8b74394b95c6'],
+      ['Tanzania Mutton','30','1603360946369-dc9bb6258143'],
+      ['Habsha Mutton','50','1598103442097-8b74394b95c6'],
+      ['Naimi','25','1432139555190-58524dae6a55']
+    ]},
+    {id:'camel', name:'Camel Local', pic:CAT+'camel-local-1792331395037.avif', items:[
+      ['Hashi','45','1607623814075-e51df1bdc82f'],
+      ['Camel','105','1607623814075-e51df1bdc82f']
+    ]},
+    {id:'chicken', name:'Chicken', pic:CAT+'chicken-1792331421397.avif', items:[
+      ['Chicken with Skin','120','1587593810167-a84920ea0781'],
+      ['Chicken without Skin','115','1604503468506-a8da13d82791']
+    ]},
+    {id:'extras', name:'Extras / Offal', pic:CAT+'extras-offal-1792331457206.avif', items:[
+      ['Mutton Trotters / Paya','100','1606851094291-6efae152bb87'],
+      ['Beef Trotters','40','1544025162-d76694265947']
+    ]}
+  ];
+  var WA = 'https://api.whatsapp.com/send/?phone=966595051532&type=phone_number&app_absent=0&text=';
+  var waIcon = '<svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" aria-hidden="true"><path d="M32 5C17 5 5 17 5 32c0 5 1.4 9.7 3.8 13.7L5 59l13.7-3.6A27 27 0 1 0 32 5z"/></svg>';
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+
+  var tabsEl = document.getElementById('tabs');
+  var menuEl = document.getElementById('menu');
+
+  // Tabs: "All" + one per category
+  var tabsHtml = '<button class="tab" role="tab" data-cat="all" aria-selected="false">'+
+    '<span class="pic all"><svg viewBox="0 0 24 24" fill="none" stroke="#7d1426" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span>'+
+    '<span class="name">All</span></button>';
+  MENU.forEach(function(c){
+    tabsHtml += '<button class="tab" role="tab" data-cat="'+c.id+'" aria-selected="false">'+
+      '<span class="pic" style="background-image:url(\''+c.pic+'\')"></span>'+
+      '<span class="name">'+esc(c.name)+'</span></button>';
+  });
+  tabsEl.innerHTML = tabsHtml;
+
+  // Product groups
+  var html = '';
+  MENU.forEach(function(c){
+    html += '<section class="group" data-cat="'+c.id+'" role="tabpanel">'+
+      '<h2 class="section-title">'+esc(c.name)+'</h2>'+
+      '<span class="count">'+c.items.length+(c.items.length===1?' item':' items')+'</span>'+
+      '<div class="grid">';
+    c.items.forEach(function(p){
+      var msg = encodeURIComponent('Hello Meat Zone, I would like to order: '+p[0]);
+      html += '<article class="card">'+
+        '<div class="ph"><img class="photo" src="'+IMG+p[2]+Q+'" alt="'+esc(p[0])+'" loading="lazy" width="600" height="600"></div>'+
+        '<div class="body"><h3>'+esc(p[0])+'</h3>'+
+        '<div class="price">From <b>'+p[1]+' SAR</b></div>'+
+        '<a class="order" href="'+WA+msg+'" target="_blank" rel="noopener noreferrer">'+waIcon+'Order</a>'+
+        '</div></article>';
+    });
+    html += '</div></section>';
+  });
+  menuEl.innerHTML = html;
+
+  function show(cat){
+    [].forEach.call(tabsEl.children,function(t){
+      t.setAttribute('aria-selected', t.dataset.cat===cat ? 'true' : 'false');
+    });
+    [].forEach.call(menuEl.children,function(g){
+      g.hidden = !(cat==='all' || g.dataset.cat===cat);
+    });
+    window.scrollTo(0,0);
+  }
+  tabsEl.addEventListener('click',function(e){
+    var t = e.target.closest('.tab');
+    if(t){show(t.dataset.cat);t.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});}
+  });
+  show(MENU[0].id);
+</script>
+</body>
+</html>
