@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Our Products – Meat Zone · Madinah</title>
 <meta name="description" content="Meat Zone menu: fresh halal beef, mutton, camel, chicken and extras in Madinah.">
-<meta name="theme-color" content="#7d1426">
+<meta name="theme-color" content="#7c1917">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -37,16 +37,17 @@
 </script>
 <style>
   :root{
-    --maroon:#7d1426;
-    --maroon-deep:#6a0f1e;
-    --maroon-dark:#5a0c18;
+    --maroon:#7c1917;
+    --maroon-deep:#6c1513;
+    --maroon-dark:#5e110f;
     --green:#1f7a35;
     --green-deep:#155f27;
     --cream:#f8f3ed;
     --card:#fdfaf7;
     --gold:#b8945a;
     --gold-light:#d9bf8c;
-    --text-maroon:#6e1424;
+    --text-maroon:#6e1715;
+    --tex:repeating-linear-gradient(45deg,rgba(0,0,0,.09) 0 1px,transparent 1px 4px),repeating-linear-gradient(-45deg,rgba(0,0,0,.09) 0 1px,transparent 1px 4px);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{overflow-x:hidden}
@@ -64,9 +65,9 @@
   /* ---------- Top bar ---------- */
   .top{
     position:sticky;top:0;z-index:10;
-    background:linear-gradient(180deg,#8e1a2e 0%,var(--maroon) 55%,var(--maroon-deep) 100%);
+    background:var(--tex),linear-gradient(180deg,#82201c 0%,var(--maroon) 55%,var(--maroon-deep) 100%);
     border-bottom:2px solid var(--gold-light);
-    box-shadow:0 4px 14px rgba(90,12,24,.22);
+    box-shadow:0 4px 14px rgba(94,17,15,.22);
     padding-top:env(safe-area-inset-top);
   }
   .bar{
@@ -127,7 +128,7 @@
     width:56px;height:56px;border-radius:50%;
     background:#eadfd3 center/cover no-repeat;
     border:2px solid var(--gold-light);
-    box-shadow:0 3px 8px rgba(90,12,24,.12);
+    box-shadow:0 3px 8px rgba(94,17,15,.12);
     transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     overflow:hidden;
   }
@@ -138,7 +139,7 @@
   .tab .pic.all svg{width:28px;height:28px}
   .tab[aria-selected="true"] .pic{
     border-color:var(--maroon);
-    box-shadow:0 0 0 3px var(--gold-light),0 5px 12px rgba(90,12,24,.22);
+    box-shadow:0 0 0 3px var(--gold-light),0 5px 12px rgba(94,17,15,.22);
     transform:translateY(-1px);
   }
   .tab[aria-selected="true"] .name{color:var(--maroon);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px;text-decoration-thickness:2px}
@@ -170,10 +171,10 @@
   .card{
     display:flex;flex-direction:column;
     background:var(--card);
-    border:1.5px solid rgba(125,20,38,.18);
+    border:1.5px solid rgba(124,25,23,.18);
     border-radius:16px;
     overflow:hidden;
-    box-shadow:0 0 0 1px rgba(217,191,140,.35),0 4px 12px rgba(90,12,24,.08);
+    box-shadow:0 0 0 1px rgba(217,191,140,.35),0 4px 12px rgba(94,17,15,.08);
   }
   .card .ph{
     position:relative;aspect-ratio:4/3;width:100%;
@@ -189,18 +190,18 @@
   }
   .card h3{
     font-family:'Nunito Sans','Lato',sans-serif;font-weight:800;
-    font-size:14.5px;line-height:1.25;color:var(--maroon);
+    font-size:14.5px;line-height:1.25;color:#1c1514;
   }
   .card .price{
-    font-size:13px;color:#5c4a44;
+    font-size:13px;color:#2b2321;
   }
-  .card .price b{color:var(--maroon);font-weight:700;font-size:15px}
+  .card .price b{color:#111;font-weight:700;font-size:15px}
   .group + .group{margin-top:20px}
   [hidden]{display:none!important}
 
   /* ---------- Footer ---------- */
   .footer{
-    background:linear-gradient(180deg,var(--maroon) 0%,var(--maroon-dark) 100%);
+    background:var(--tex),linear-gradient(180deg,var(--maroon) 0%,var(--maroon-dark) 100%);
     border-top:2px solid var(--gold-light);
     color:#f3e6d9;text-align:center;
     padding:20px 16px calc(22px + env(safe-area-inset-bottom));
@@ -287,7 +288,7 @@
 
   // Tabs: "All" + one per category
   var tabsHtml = '<button class="tab" role="tab" data-cat="all" aria-selected="false">'+
-    '<span class="pic all"><svg viewBox="0 0 24 24" fill="none" stroke="#7d1426" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span>'+
+    '<span class="pic all"><svg viewBox="0 0 24 24" fill="none" stroke="#7c1917" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg></span>'+
     '<span class="name">All</span></button>';
   MENU.forEach(function(c){
     tabsHtml += '<button class="tab" role="tab" data-cat="'+c.id+'" aria-selected="false">'+
